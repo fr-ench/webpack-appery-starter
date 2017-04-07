@@ -20,18 +20,6 @@ function PUSH_IF(arr, condition, element){
 };
 
 module.exports = {
-
-  devServer: {
-    publicPath: PROTOCOL + '://' + DOMAIN +':' + PORT +  '/dist/',
-    headers: {
-      'Access-Control-Allow-Origin'      : '*',
-      'Access-Control-Allow-Credentials' : 'true'
-    },
-    inline: true,
-    hot : true,
-    host: DOMAIN,
-    https: PROTOCOL === 'https'
-  },
   entry: (function(){
     var serviceArray = IS_DEV_SERVER 
       ? ['webpack-dev-server/client?' + PROTOCOL + '://' + DOMAIN +':' + PORT] 
@@ -122,5 +110,17 @@ module.exports = {
     }));
     
     return plugins;
-  })()
+  })(),
+
+  devServer: {
+    publicPath: PROTOCOL + '://' + DOMAIN +':' + PORT +  '/dist/',
+    headers: {
+      'Access-Control-Allow-Origin'      : '*',
+      'Access-Control-Allow-Credentials' : 'true'
+    },
+    inline: true,
+    hot : true,
+    host: DOMAIN,
+    https: PROTOCOL === 'https'
+  }
 };

@@ -5,7 +5,8 @@
   "repository": {},
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server", //--cert=crt.txt --key=key.txt
+    "start": "webpack-dev-server ",
+    "https": "webpack-dev-server --cert=localhost-crt.txt --key=localhost-key.txt",
     "development": "webpack",
     "production": "NODE_ENV=production webpack --optimize-minimize",
     "stats": "webpack --profile --json > stats.json"
